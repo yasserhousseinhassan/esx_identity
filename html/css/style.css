@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', monospace;
+    color: #ffffff;
+    overflow: hidden;
+    display: none;
+    background: transparent;
+}
+
+.holo-panel {
+    position: fixed;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 350px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 170, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 170, 255, 0.2), inset 0 0 30px rgba(0, 170, 255, 0.1);
+    animation: slideInLeft 1s ease-out, floating 3s ease-in-out infinite;
+    z-index: 1000;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateY(-50%) translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-50%) translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(-50%);
+    }
+    50% {
+        transform: translateY(-50%) translateY(5px);
+    }
+}
+
+.logo {
+    display: block;
+    width: 180px;
+    height: auto;
+    margin: 0 auto 20px;
+    filter: drop-shadow(0 0 10px #00aaff);
+    animation: logoFadeIn 1.5s ease-out, logoGlow 2s ease-in-out infinite alternate, logoPulse 3s ease-in-out infinite;
+}
+
+@keyframes logoFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes logoGlow {
+    from {
+        filter: drop-shadow(0 0 10px #00aaff);
+    }
+    to {
+        filter: drop-shadow(0 0 20px #00aaff);
+    }
+}
+
+@keyframes logoPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #00aaff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="date"] {
+    width: 100%;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'Orbitron', monospace;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-group input[type="text"]:focus,
+.input-group input[type="date"]:focus {
+    border-color: #00aaff;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    animation: highlight 0.5s ease-out;
+}
+
+@keyframes highlight {
+    0% {
+        box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 170, 255, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
+    }
+}
+
+.input-group input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #00aaff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00aaff;
+    transition: all 0.3s ease;
+}
+
+.input-group input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 20px #00aaff;
+    transform: scale(1.2);
+}
+
+.height-display {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    font-size: 12px;
+    color: #b794f6;
+    font-weight: 500;
+}
+
+.sex-radio {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sex-radio input[type="radio"] {
+    display: none;
+}
+
+.radio-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 2px;
+}
+
+.sex-radio input[type="radio"]:checked + .radio-btn {
+    background: rgba(0, 170, 255, 0.2);
+    border-color: #00aaff;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
+    color: #00aaff;
+}
+
+.radio-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.neon-btn {
+    grid-column: 1 / -1;
+    padding: 12px;
+    background: rgba(0, 170, 255, 0.1);
+    border: 1px solid #00aaff;
+    border-radius: 8px;
+    color: #00aaff;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Orbitron', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.neon-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 170, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.neon-btn:hover {
+    background: rgba(0, 170, 255, 0.2);
+    box-shadow: 0 0 20px #00aaff, 0 0 40px #00aaff;
+    transform: translateY(-2px);
+}
+
+.neon-btn:hover::before {
+    left: 100%;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .holo-panel {
+        left: 20px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .holo-panel {
+        left: 10px;
+        width: 280px;
+        padding: 20px;
+    }
+}

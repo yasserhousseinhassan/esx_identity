@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESX Identity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="holo-panel">
+        <form id="register-form" class="form-grid">
+            <div class="input-group">
+                <label for="firstname">first name</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Votre prénom" minlength="3" maxlength="8" pattern="[a-zA-Z]*" required>
+            </div>
+            <div class="input-group">
+                <label for="lastname">last name</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Votre nom" minlength="3" maxlength="10" pattern="[a-zA-Z]*" required>
+            </div>
+            <div class="input-group">
+                <label for="dateofbirth">date of birth</label>
+                <input type="date" id="dateofbirth" name="dateofbirth" min="1900-01-01" max="2010-01-01" required>
+            </div>
+            <div class="input-group">
+                <label for="height">height</label>
+                <input type="range" id="height" name="height" min="120" max="220" value="170">
+                <div class="height-display" id="height-value">170</div>
+            </div>
+            <div class="input-group">
+                <label>Sexe</label>
+                <div class="sex-radio">
+                    <input type="radio" id="male" name="sex" value="m" checked>
+                    <label for="male" class="radio-btn">male</label>
+                    <input type="radio" id="female" name="sex" value="f">
+                    <label for="female" class="radio-btn">female</label>
+                </div>
+            </div>
+            <button type="submit" class="neon-btn">Create my character</button>
+        </form>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
